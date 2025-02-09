@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   <meta name="description" content="Bootstrap Admin App + jQuery">
+   <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+   <title>DAS</title>
+   <link rel="icon" type="image/x-icon" href="images\doct.png">
+   <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+   <link rel="stylesheet" href="vendor/simple-line-icons/css/simple-line-icons.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="vendor/animate.css/animate.min.css">
+   <link rel="stylesheet" href="vendor/whirl/dist/whirl.css">
+   <link rel="stylesheet" href="app/css/bootstrap.css" id="bscss">
+   <link rel="stylesheet" href="app/css/app.css" id="maincss">
+   <link rel="stylesheet" href="vendor/fontawesome/css/font-awesome.min.css">
+
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+   <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+   <style>
+      a:hover {
+         text-decoration: none !important;
+      }
+
+      html {
+         position: relative;
+         min-height: 100vh;
+      }
+
+      footer {
+         position: absolute;
+         bottom: 0;
+         left: 0;
+      }
+
+      body {
+         background-image: url("/images/hospital.png");
+         background-repeat: no-repeat;
+         background-size: cover;
+      }
+
+      h1 {
+         color: rgb(37, 37, 37);
+      }
+
+      .content-heading,
+      section {
+         background-image: url("/images/dark.png");
+         background-size: cover;
+         border-radius: 20px;
+         overflow: hidden;
+         padding: 20px;
+         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+      }
+   </style>
+</head>
+
+<body class="layout-h">
+   <div class="wrapper">
+      <header class="topnavbar-wrapper">
+         <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+               <div class="navbar-header">
+                  <a class="navbar-brand" href="#"><b>Doctor Appointment System</b></a>
+               </div>
+               <ul class="nav navbar-nav">
+                  <li class="active"><a href="#"><b>HOME</b></a></li>
+               </ul>
+            </div>
+         </nav>
+      </header>
+
+      <section>
+         <div class="content-wrapper">
+            <div class="content-heading">
+               <h1>  <i class="fa fa-h-square" style="font-size:32px;"></i>Dashboard</h1>
+               <small data-localize="dashboard.WELCOME"></small>
+            </div>
+
+            <div class="row">
+               <div class="row">
+                  <div class="col-lg-4 col-md-6">
+                     <a href="patient.html">
+                        <div class="panel widget bg-success">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <i class="fa fa-wheelchair" style="font-size:48px;"></i>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="patientcount"></div>
+                                 <div class="text-uppercase"><b>Patient</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                     <a href="doctor.html">
+                        <div class="panel widget bg-danger">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <i class="fa fa-user-md" style="font-size:48px;"></i>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="doctorcount"></div>
+                                 <div class="text-uppercase"><b>Doctor</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                     <a href="appointment.html">
+                        <div class="panel widget bg-purple-dark">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <em class="icon-pencil fa-3x"></em>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="appointmentcount"></div>
+                                 <div class="text-uppercase"><b>Appointment</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                     <a href="medication.html">
+                        <div class="panel widget bg-info">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <em class="fa fa-clipboard" style='font-size:48px'></em>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="medicationcount"></div>
+                                 <div class="text-uppercase"><b>Medication</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                     <a href="procedure.html">
+                        <div class="panel widget bg-purple-light">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <em class="fa fa-stethoscope" style='font-size:48px'></em>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="proccount"></div>
+                                 <div class="text-uppercase"><b>Procedure</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+                  <div class="col-lg-4 col-md-6">
+                     <a href="prescribes.html">
+                        <div class="panel widget bg-danger-light">
+                           <div class="row row-table">
+                              <div class="col-xs-4 text-center bg-gray-dark pv-lg">
+                                 <em class="fa fa-bookmark" style='font-size:48px'></em>
+                              </div>
+                              <div class="col-xs-8 pv-lg">
+                                 <div class="h1 m0 text-bold" id="prescribescount"></div>
+                                 <div class="text-uppercase"><b>Prescribes</b></div>
+                              </div>
+                           </div>
+                        </div>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </section>
+      <footer style=  "color: #fff;">
+         <span>&copy; 2025 - Doctor Appointment System</span>
+       </footer>
+       
+
+   </div>
+   <script src="vendor/modernizr/modernizr.custom.js"></script>
+   <script src="vendor/jquery/dist/jquery.js"></script>
+   <script src="vendor/bootstrap/dist/js/bootstrap.js"></script>
+   <script src="vendor/jQuery-Storage-API/jquery.storageapi.js"></script>
+   <script src="vendor/jquery.easing/js/jquery.easing.js"></script>
+   <script src="vendor/animo.js/animo.js"></script>
+   <script src="vendor/jquery-localize-i18n/dist/jquery.localize.js"></script>
+   <script src="app/js/app.js"></script>
+   <script src="js/home.js"></script>
+</body>
+</html>
