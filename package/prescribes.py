@@ -56,6 +56,6 @@ class Prescribe(Resource):
         p_date = prescribes['p_date']
         app_id = prescribes['app_id']
         dose = prescribes['dose']
-        conn.execute("UPDATE prescribes SET doc_id=?,pat_id=?,med_code=?,p_date=?,app_id=?,dose=?, WHERE doc_id=?", (doc_id, pat_id, med_code, p_date, app_id, dose, doc_id))
+        conn.execute("UPDATE prescribes SET doc_id=?,pat_id=?,med_code=?,p_date=?,app_id=?,dose=?", (doc_id, pat_id, med_code, p_date, app_id, dose, doc_id))
         conn.commit()
         return prescribes

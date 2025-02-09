@@ -20,7 +20,7 @@ import os
 with open('config.json') as data_file:
     config = json.load(data_file)
 
-app = Flask(__name__, static_url_path='')
+app = Flask(__name__, static_url_path='', static_folder='static')
 api = Api(app)
 
 api.add_resource(Patients, '/patient')
@@ -41,6 +41,7 @@ api.add_resource(Room, '/room/<int:room_no>')
 api.add_resource(Procedures, '/procedure')
 api.add_resource(Procedure, '/procedure/<int:code>')
 api.add_resource(Prescribes, '/prescribes')
+api.add_resource(Prescribe, '/prescribes/<int:doc_id>')
 api.add_resource(Undergoess, '/undergoes')
 
 
